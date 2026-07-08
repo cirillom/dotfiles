@@ -1,3 +1,4 @@
+# Invoke-RestMethod -Uri "https://raw.githubusercontent.com/cirillom/dotfiles/refs/heads/main/boostrap.ps1" | Invoke-Expression
 # 1. Define base Winget arguments to suppress interactive prompts
 $wingetArgs = @("--accept-package-agreements", "--accept-source-agreements", "--silent")
 
