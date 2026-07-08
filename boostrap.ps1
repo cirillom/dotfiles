@@ -4,6 +4,7 @@ $wingetArgs = @("--accept-package-agreements", "--accept-source-agreements", "--
 
 # 2. Allocate runtimes via Winget
 winget install Git.Git @wingetArgs
+winget install jj-vcs.jj @wingetArgs
 winget install twpayne.chezmoi @wingetArgs
 winget install Neovim.Neovim @wingetArgs
 winget install Nushell.Nushell @wingetArgs
