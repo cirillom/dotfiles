@@ -1,8 +1,79 @@
+add_newline = true
+
+format = """
+$hostname\
+$directory\
+${custom.jj}\
+$git_branch\
+$git_status\
+$package\
+$python\
+$line_break\
+$character"""
+
+
+# ── Machine ──────────────────────────────────────────────
+
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol$hostname]($style) '
-style = 'bold green'
-ssh_symbol = '🌐 '
+format = "[$ssh_symbol$hostname]($style) "
+style = "bold cyan"
+ssh_symbol = "🌐 "
 
-[line_break]
+
+# ── Directory ────────────────────────────────────────────
+
+[directory]
+format = "[\uF07B ](bold blue)[$path]($style)[$read_only]($read_only_style) "
+style = "bold blue"
+truncation_length = 4
+truncate_to_repo = false
+
+
+# ── Jujutsu ──────────────────────────────────────────────
+
+[custom.jj]
+when = "jj root"
+
+# Closest bookmarked ancestor of the current working copy.
+command = """jj log -r 'heads(first_ancestors(@) & bookmarks())' --no-graph --color never -T 'local_bookmarks.join(",")'"""
+
+# Branch icon + jj bookmark.
+format = "[\uE725 $output]($style) "
+style = "bold purple"
+
+shell = ["nu", "-c"]
+use_stdin = false
+ignore_timeout = true
+
+
+# ── Git ──────────────────────────────────────────────────
+
+[git_branch]
+
+# Hide the detached HEAD created by colocated jj repositories.
+only_attached = true
+
+# Nerd Font branch icon.
+symbol = "\uE725 "
+
+format = "[$symbol$branch]($style) "
+style = "bold purple"
+
+[git_commit]
 disabled = true
+
+
+# ── Python ───────────────────────────────────────────────
+
+[python]
+
+# Nerd Font Python logo.
+symbol = "\uE73C "
+
+
+# ── Prompt ───────────────────────────────────────────────
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
