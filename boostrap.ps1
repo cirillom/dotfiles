@@ -11,6 +11,7 @@ winget install Nushell.Nushell @wingetArgs
 winget install marlocarlo.psmux @wingetArgs
 winget install ajeetdsouza.zoxide @wingetArgs
 winget install IbrahimDursun.jjui @wingetArgs
+winget install Starship.Starship @wingetArgs
 
 # 3. Reload environment variables into the current process memory to resolve newly installed binary paths
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
