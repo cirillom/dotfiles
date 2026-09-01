@@ -1,33 +1,8 @@
-add_newline = true
-
-format = """
-$hostname\
-$directory\
-$git_branch\
-$git_status\
-$line_break\
-$character"""
-
 [hostname]
 ssh_only = false
-format = "[$ssh_symbol$hostname]($style) "
-style = "bold cyan"
-ssh_symbol = "SSH "
+format = '[$ssh_symbol$hostname]($style) '
+style = 'bold green'
+ssh_symbol = '🌐 '
 
-[directory]
-style = "bold blue"
-truncation_length = 4
-truncate_to_repo = false
-
-[git_branch]
-format = "[$symbol$branch]($style) "
-symbol = "git:"
-style = "bold purple"
-
-[git_status]
-format = "[$all_status$ahead_behind]($style) "
-style = "bold yellow"
-
-[character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+[line_break]
+disabled = true
