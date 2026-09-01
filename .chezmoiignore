@@ -1,0 +1,8 @@
+{{ if ne .chezmoi.os "windows" }}
+AppData/
+boostrap.ps1
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+.config/nushell/
+{{ end }}
